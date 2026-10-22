@@ -1,0 +1,314 @@
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+    background: #f4f7f6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Cabeçalho */
+
+header {
+    background: #103c35;
+    color: white;
+    padding: 32px 0;
+}
+
+.conteudo {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    margin: 8px 0;
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.topo p {
+    color: #d3e5dd;
+    margin-bottom: 0;
+}
+
+.etiqueta {
+    color: #abdfbf;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.indicador {
+    white-space: nowrap;
+    padding: 12px 18px;
+    border: 1px solid #67998a;
+    border-radius: 30px;
+}
+
+/* Conteúdo principal */
+
+main {
+    padding-top: 24px !important;
+    padding-bottom: 32px !important;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.painel {
+    background: white;
+    padding: 24px;
+    margin-bottom: 18px;
+    border: 1px solid #dce7e3;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #173a3010;
+}
+
+/* Formulários */
+
+label {
+    display: grid;
+    gap: 6px;
+    margin: 0 0 14px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #baccc4;
+    border-radius: 6px;
+    font: inherit;
+    background: white;
+    color: #1e293b;
+}
+
+button {
+    background: #146b4c;
+    border: 0;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0e533b;
+}
+
+button:disabled {
+    background: #9aaea5;
+    cursor: not-allowed;
+}
+
+.botao-secundario {
+    background: #e2efe7;
+    color: #174f38;
+}
+
+.botao-secundario:hover {
+    background: #d0e3d9;
+}
+
+.botao-pequeno {
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.botao-perigo {
+    background: #a63f40;
+}
+
+.botao-perigo:hover {
+    background: #7d2f30;
+}
+
+/* Organização dos formulários */
+
+.duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-horizontal {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+    gap: 12px;
+}
+
+.form-horizontal label {
+    margin-bottom: 0;
+}
+
+/* Títulos das seções */
+
+.secao-titulo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.secao-titulo h2,
+.secao-titulo p {
+    margin: 0;
+}
+
+.secao-titulo p {
+    color: #607268;
+    margin-top: 5px;
+}
+
+/* Cards dos eventos */
+
+.cartoes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.cartao {
+    border: 1px solid #d9e6df;
+    border-radius: 9px;
+    padding: 18px;
+}
+
+.cartao h3 {
+    margin: 0 0 10px;
+}
+
+.cartao p {
+    color: #516157;
+    margin: 6px 0;
+}
+
+/* Barra de vagas */
+
+.barra {
+    height: 9px;
+    background: #e7eee9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+.progresso {
+    height: 100%;
+    background: #218252;
+}
+
+/* Listas de usuários e inscrições */
+
+.item-inscricao,
+.item-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e8efeb;
+}
+
+.item-inscricao span,
+.item-usuario span {
+    overflow-wrap: anywhere;
+}
+
+.subtitulo {
+    margin-top: 14px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Avisos e mensagens */
+
+.aviso {
+    font-weight: bold;
+    color: #9d4b35;
+}
+
+.mensagem {
+    display: none;
+    padding: 12px 16px;
+    background: #dbf2e5;
+    color: #194b31;
+    border-radius: 8px;
+    margin: 0 0 18px;
+}
+
+.mensagem.visivel {
+    display: block;
+}
+
+.mensagem.erro {
+    background: #ffe3df;
+    color: #8e302b;
+}
+
+.vazio {
+    color: #607268;
+}
+
+/* Rodapé */
+
+footer {
+    text-align: center;
+    color: #6b7c71;
+    font-size: 13px;
+    padding: 20px;
+}
+
+/* Responsividade para telas menores */
+
+@media (max-width: 760px) {
+
+    .topo,
+    .secao-titulo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .grade,
+    .cartoes,
+    .form-horizontal {
+        grid-template-columns: 1fr;
+    }
+
+    .indicador {
+        display: none;
+    }
+}

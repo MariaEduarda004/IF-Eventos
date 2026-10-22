@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IF Eventos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="conteudo topo">
+      <div>
+        <h1>IF Eventos</h1>
+        <p>Gestão de usuários, eventos e inscrições</p>
+      </div>
+    </div>
+  </header>
+  <main class="conteudo">
+    <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    <section class="grade">
+      <article class="painel">
+        <h2>1. Cadastrar usuário</h2>
+        <form id="formUsuario">
+          <label>Nome<input name="nome" required maxlength="120" placeholder="Ex.: Ana Silva"></label>
+          <label>E-mail<input name="email" type="email" required placeholder="ana@exemplo.com"></label>
+          <label>Idade<input name="idade" type="number" min="0" required value="20"></label>
+          <button type="submit">Cadastrar usuário</button>
+        </form>
+      </article>
+      <article class="painel">
+        <h2>2. Cadastrar evento</h2>
+        <form id="formEvento">
+          <label>Título<input name="titulo" required maxlength="120" placeholder="Ex.: Oficina de APIs REST"></label>
+          <label>Descrição<textarea name="descricao" rows="2" maxlength="500"></textarea></label>
+          <div class="duas-colunas">
+            <label>Data<input name="data" type="date" required></label>
+            <label>Capacidade<input name="capacidade" type="number" min="1" required value="10"></label>
+          </div>
+          <label>Local<input name="local" required placeholder="Lab 2"></label>
+          <button type="submit">Cadastrar evento</button>
+        </form>
+      </article>
+    </section>
+    <section class="painel">
+      <div class="secao-titulo">
+        <div><h2>3. Inscrever participante</h2>
+          <p>Escolha um usuário e um evento já cadastrados.</p></div>
+      </div>
+      <form id="formInscricao" class="form-horizontal">
+        <label>Usuário
+          <select id="usuarioId" required>
+            <option value="">Selecione</option>
+          </select>
+        </label>
+        <label>Evento
+          <select id="eventoId" required>
+            <option value="">Selecione</option>
+          </select>
+        </label>
+        <button type="submit">Confirmar inscrição</button>
+      </form>
+    </section>
+    <section class="painel">
+      <div class="secao-titulo">
+        <div>
+          <h2>Eventos disponíveis</h2>
+          <p>Inscrições e vagas são calculadas a partir dos registros no banco.</p>
+        </div>
+        <button class="botao-secundario" id="atualizar" type="button">Atualizar</button>
+      </div>
+      <div id="listaEventos" class="cartoes"></div>
+    </section>
+    <section class="painel">
+      <h2>Usuários cadastrados</h2>
+      <div id="listaUsuarios" class="lista"></div>
+    </section>
+  </main>
+</body>
+</html>

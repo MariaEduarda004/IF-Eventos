@@ -3,4 +3,4 @@ build/
 .idea/
 *.iml
 .env
-test/
+/test/

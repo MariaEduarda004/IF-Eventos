@@ -26,8 +26,15 @@ Uma inscrição não exige autenticação. Um usuário pode participar de vário
 
 ## Como abrir no IntelliJ IDEA (Windows)
 
-1. Instale o [JDK 21](https://www.azul.com/downloads/?version=java-21-lts&package=jdk) e o [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
-2. Extraia este ZIP e abra o IntelliJ. Escolha **Open** e selecione a pasta que contém `build.gradle`.
+1. Instale o [JDK 21](https://www.azul.com/downloads/?version=java-21-lts&package=jdk), o [Git](https://git-scm.com/downloads) e o [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
+2. No PowerShell, clone o repositório:
+
+   ```powershell
+   git clone https://github.com/MariaEduarda004/IF-Eventos.git
+   ```
+
+   Como alternativa, baixe e extraia o ZIP pelo GitHub.
+   Abra o IntelliJ, escolha **Open** e selecione a pasta `IF-Eventos`, que contém `build.gradle`.
 3. Se solicitado, confirme **Trust Project** se você confia na origem dos arquivos.
 4. Configure `File > Project Structure > Project SDK` para **JDK 21**.
 5. Em `Settings > Build, Execution, Deployment > Build Tools > Gradle`, selecione **Gradle JVM = JDK 21**.
@@ -35,6 +42,13 @@ Uma inscrição não exige autenticação. Um usuário pode participar de vário
 7. Abra `src/main/java/com/ifsul/backend/aula/AulaApplication.java` e execute pelo botão verde ao lado do `main`.
 
 O perfil padrão é **H2**, portanto não precisa instalar banco para iniciar.
+
+Com a aplicação em execução, acesse a página inicial pelo navegador. As telas
+HTML são separadas: **Usuários** permite cadastrar, editar e excluir pessoas;
+**Eventos** permite cadastrar, editar e excluir eventos; e **Inscrições**
+permite inscrever participantes e cancelar inscrições. Para editar, selecione
+**Editar**, altere os campos e clique em **Salvar alterações**; **Cancelar
+edição** volta ao formulário de cadastro sem salvar.
 
 ## Endereços
 

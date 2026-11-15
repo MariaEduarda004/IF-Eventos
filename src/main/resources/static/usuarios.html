@@ -18,12 +18,15 @@
   <main class="conteudo">
     <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
     <section class="painel">
-      <h2>Cadastrar usuário</h2>
+      <h2 id="tituloFormulario">Cadastrar usuário</h2>
       <form id="formUsuario">
         <label>Nome<input name="nome" required maxlength="120" placeholder="Ex.: Ana Silva"></label>
         <label>E-mail<input name="email" type="email" required placeholder="ana@exemplo.com"></label>
         <label>Idade<input name="idade" type="number" min="0" required value="20"></label>
-        <button type="submit">Cadastrar usuário</button>
+        <div class="acoes">
+          <button type="submit" id="salvarUsuario">Cadastrar usuário</button>
+          <button type="button" class="botao-secundario" id="cancelarEdicao" hidden>Cancelar edição</button>
+        </div>
       </form>
     </section>
     <section class="painel">

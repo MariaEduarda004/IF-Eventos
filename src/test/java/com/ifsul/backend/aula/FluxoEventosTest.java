@@ -74,6 +74,10 @@ class FluxoEventosTest {
                 dadosEvento.replace("\"capacidade\":1", "\"capacidade\":2")).statusCode());
         HttpResponse<String> segundoCadastro = requisicao("POST", "/inscricoes", outraInscricao);
         assertEquals(201, segundoCadastro.statusCode());
+        HttpResponse<String> varios = requisicao("GET", "/eventos/" + eventoId + "/exportar/xml", null);
+        assertEquals(200, varios.statusCode());
+        assertTrue(varios.body().startsWith("<?xml"));
+        assertEquals(2, xml(varios.body()).getElementsByTagName("participante").getLength());
         assertEquals(409, requisicao("PUT", "/eventos/" + eventoId, dadosEvento).statusCode());
         long segundaInscricaoId = jsonMapper.readTree(segundoCadastro.body()).get("id").asLong();
         assertEquals(204, requisicao("DELETE", "/inscricoes/" + segundaInscricaoId, null).statusCode());

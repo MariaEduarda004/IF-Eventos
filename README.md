@@ -141,6 +141,9 @@ com um elemento `participante` por inscrição. Por exemplo:
 
 O navegador baixa os arquivos, mas também é possível chamar as rotas
 diretamente, por exemplo `GET /eventos/1/exportar/xml`.
+O serviço usa Jackson para gerar os dois formatos. No XML, o DTO
+`ParticipantesXml` define o elemento raiz e o nome dos elementos da lista;
+os dados de cada participante vêm de `InscricaoResponse`.
 
 ## Organização do código
 

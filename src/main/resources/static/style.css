@@ -53,6 +53,33 @@ p {
     margin-bottom: 0;
 }
 
+header p {
+    color: #d3e5dd;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+}
+
+nav a[aria-current="page"] {
+    font-weight: bold;
+    text-decoration-thickness: 2px;
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
 .etiqueta {
     color: #abdfbf;
     font-weight: bold;

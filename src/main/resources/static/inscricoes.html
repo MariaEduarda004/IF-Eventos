@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscrições - IF Eventos</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/inscricoes.js"></script>
+</head>
+<body>
+  <header><div class="conteudo">
+    <h1>IF Eventos</h1><p>Gestão de usuários, eventos e inscrições</p>
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a><a href="usuarios.html">Usuários</a>
+      <a href="eventos.html">Eventos</a><a href="inscricoes.html" aria-current="page">Inscrições</a>
+    </nav>
+  </div></header>
+  <main class="conteudo">
+    <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    <section class="painel">
+      <h2>Inscrever participante</h2>
+      <p>Escolha um usuário e um evento já cadastrados.</p>
+      <form id="formInscricao" class="form-horizontal">
+        <label>Usuário<select id="usuarioId" required><option value="">Selecione</option></select></label>
+        <label>Evento<select id="eventoId" required><option value="">Selecione</option></select></label>
+        <button type="submit">Confirmar inscrição</button>
+      </form>
+    </section>
+    <section class="painel">
+      <div class="secao-titulo">
+        <div><h2>Eventos e participantes</h2><p>Inscrições e vagas são calculadas a partir dos registros no banco.</p></div>
+        <button class="botao-secundario" id="atualizar" type="button">Atualizar</button>
+      </div>
+      <div id="listaEventos" class="cartoes"></div>
+    </section>
+  </main>
+</body>
+</html>

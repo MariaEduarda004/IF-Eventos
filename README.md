@@ -39,6 +39,7 @@ O perfil padrão é **H2**, portanto não precisa instalar banco para iniciar.
 ## Endereços
 
 - Front-end: <http://localhost:8080/>
+- Páginas: <http://localhost:8080/usuarios.html>, <http://localhost:8080/eventos.html> e <http://localhost:8080/inscricoes.html>
 - Usuários: <http://localhost:8080/usuarios>
 - Eventos: <http://localhost:8080/eventos>
 - H2 Console: <http://localhost:8080/h2-console>
@@ -62,6 +63,8 @@ Ao parar a aplicação, o banco H2 em memória perde os registros.
 | PUT | `/eventos/{id}` | Atualizar evento |
 | DELETE | `/eventos/{id}` | Excluir evento sem inscrições |
 | GET | `/inscricoes/evento/{eventoId}` | Consultar participantes de um evento |
+| GET | `/eventos/{id}/exportar/json` | Baixar as inscrições de um evento em JSON |
+| GET | `/eventos/{id}/exportar/xml` | Baixar as inscrições de um evento em XML |
 | POST | `/inscricoes` | Inscrever usuário em evento |
 | DELETE | `/inscricoes/{id}` | Cancelar uma inscrição |
 
@@ -85,6 +88,57 @@ Ao parar a aplicação, o banco H2 em memória perde os registros.
   "eventoId": 1
 }
 ```
+
+### Exportação de participantes
+
+Cadastre um usuário e um evento, faça a inscrição e use **Exportar JSON** ou
+**Exportar XML** na lista de eventos. As duas opções contêm os mesmos campos:
+`id` da inscrição, `usuarioId`, `usuarioNome`, `eventoId`, `eventoTitulo` e
+`dataInscricao`. Os arquivos não incluem o e-mail ou a idade do usuário.
+Para um evento sem inscrições o JSON é `[]` e o XML contém um elemento
+`participantes` vazio. Para um evento inexistente a API retorna HTTP 404.
+
+O JSON é uma lista de objetos; o XML usa um elemento raiz `participantes`
+com um elemento `participante` por inscrição. Por exemplo:
+
+```json
+[
+  {
+    "id": 1,
+    "usuarioId": 1,
+    "usuarioNome": "Ana",
+    "eventoId": 1,
+    "eventoTitulo": "Oficina",
+    "dataInscricao": "2026-11-25T10:30:00"
+  }
+]
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<participantes>
+  <participante>
+    <id>1</id><usuarioId>1</usuarioId><usuarioNome>Ana</usuarioNome>
+    <eventoId>1</eventoId><eventoTitulo>Oficina</eventoTitulo>
+    <dataInscricao>2026-11-25T10:30:00</dataInscricao>
+  </participante>
+</participantes>
+```
+
+O navegador baixa os arquivos, mas também é possível chamar as rotas
+diretamente, por exemplo `GET /eventos/1/exportar/xml`.
+
+## Organização do código
+
+- `controller`: rotas HTTP; `service`: regras de negócio e exportação;
+  `repository`: acesso ao banco; `dto`: dados recebidos e devolvidos pela API.
+- `static/index.html`: guia inicial; `usuarios.html`, `eventos.html` e
+  `inscricoes.html`: telas de cada etapa.
+- `static/js/api.js`: requisições e download; `interface.js`: funções comuns
+  de interface; `lista-eventos.js`: cartões e ações compartilhados.
+  Os módulos `usuarios.js`, `eventos.js` e `inscricoes.js` coordenam suas telas.
+
+Para executar os testes automatizados no Windows, use `.\gradlew.bat test`.
 
 
 ## MySQL (opcional)

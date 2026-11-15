@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usuários - IF Eventos</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/usuarios.js"></script>
+</head>
+<body>
+  <header><div class="conteudo">
+    <h1>IF Eventos</h1><p>Gestão de usuários, eventos e inscrições</p>
+    <nav aria-label="Navegação principal">
+      <a href="index.html">Início</a><a href="usuarios.html" aria-current="page">Usuários</a>
+      <a href="eventos.html">Eventos</a><a href="inscricoes.html">Inscrições</a>
+    </nav>
+  </div></header>
+  <main class="conteudo">
+    <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    <section class="painel">
+      <h2>Cadastrar usuário</h2>
+      <form id="formUsuario">
+        <label>Nome<input name="nome" required maxlength="120" placeholder="Ex.: Ana Silva"></label>
+        <label>E-mail<input name="email" type="email" required placeholder="ana@exemplo.com"></label>
+        <label>Idade<input name="idade" type="number" min="0" required value="20"></label>
+        <button type="submit">Cadastrar usuário</button>
+      </form>
+    </section>
+    <section class="painel">
+      <div class="secao-titulo"><h2>Usuários cadastrados</h2><button class="botao-secundario" id="atualizar" type="button">Atualizar</button></div>
+      <div id="listaUsuarios" class="lista"></div>
+    </section>
+  </main>
+</body>
+</html>

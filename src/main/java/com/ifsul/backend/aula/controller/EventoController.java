@@ -66,7 +66,7 @@ public class EventoController {
 
 
     @GetMapping("/{id}/exportar/json")
-    public ResponseEntity<String> exportarParticipantes(@PathVariable Long id) {
+    public ResponseEntity<String> exportarParticipantesJson(@PathVariable Long id) {
         String json = exportacaoService.exportarParticipantesJson(id);
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_JSON)
@@ -75,5 +75,14 @@ public class EventoController {
                         "attachment; filename=\"participantes.json\""
                 )
                 .body(json);
+    }
+
+    @GetMapping("/{id}/exportar/xml")
+    public ResponseEntity<String> exportarParticipantesXml(@PathVariable Long id) {
+        String xml = exportacaoService.exportarParticipantesXml(id);
+        return ResponseEntity.ok()
+                .contentType(new MediaType("application", "xml", java.nio.charset.StandardCharsets.UTF_8))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"participantes.xml\"")
+                .body(xml);
     }
 }
